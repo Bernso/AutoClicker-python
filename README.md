@@ -1,1 +1,1 @@
-might add a ui in the future 🤷‍♂️
+main.py is a version without the UI
