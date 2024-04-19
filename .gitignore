@@ -1,5 +1,5 @@
 /.venv
 /build
 /main.spec
-/test.py
+/testUI.py
 /Icon
