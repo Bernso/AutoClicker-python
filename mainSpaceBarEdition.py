@@ -50,7 +50,7 @@ def main():
                 #mouse_controller.press(mouse.Button.left)
                 #mouse_controller.release(mouse.Button.left)
                 time.sleep(delay)
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         listener.join()
         
 if __name__ == "__main__":
