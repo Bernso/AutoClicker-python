@@ -14,21 +14,22 @@ def open_discord(event):
     webbrowser.open_new("https://discord.gg/k5HBFXqtCB")
 
 def download_ico(url, save_path):
-    response = requests.get(url)
-    if response.status_code == 200:
-        if os.path.exists("Icon/Arhururan.ico"):
-            print("Icon has already been downloaded")
-        else:
-            try:
-                with open(save_path, 'wb') as f:
-                    f.write(response.content)
-                print("ICO file downloaded successfully!")
-            except Exception as e:
-                print(f"Failed to download ICO file.\nError: {e}\n\n")
-                input()
+    
+    if os.path.exists("Icon/Arhururan.ico"):
+            print("Icon has already been downloaded")  
     else:
-        print("Failed to download ICO file.\n\n")
-        input()
+        try:
+            response = requests.get(url)
+            status_code = response.status_code
+            with open(save_path, 'wb') as f:
+                f.write(response.content)
+            print("ICO file downloaded successfully!")
+        except Exception as e:
+            print(f"Failed to download ICO file.\nError: {e}\n\n")
+            input()
+        if status_code != 200:
+            print("Failed to download ICO file.\n\n")
+            input()
 
 # Settings
 is_toggled = False
@@ -80,7 +81,7 @@ def get_delay():
     try:
         delay_float = float(delay_str)  # Convert the string to a float
         # Now you have the float value, you can use it as needed
-        print("Current delay:", delay_float)
+        #print("Current delay:", delay_float)
         return delay_float
         # You can use delay_float wherever you need it in your code
     except ValueError:
