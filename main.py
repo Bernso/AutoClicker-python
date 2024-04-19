@@ -31,9 +31,11 @@ def main():
     if user_input.lower() == 'y':
         delay = float(input("\nEnter the delay in seconds: "))
         print(f'Your delay is: {delay}')
+        print("You can now activate the autoclicker (F8)")
     elif user_input.lower() == 'n':
         delay = 0.0001
         print(f"\nThe delay has automatically been set to: {delay}")
+        print("You can now activate the autoclicker (F8)")
     else:
         print("\nInvalid input. When this text disappears the program has been restarted.\nRestarting...")
         time.sleep(2)
