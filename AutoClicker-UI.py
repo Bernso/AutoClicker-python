@@ -123,4 +123,5 @@ supportText.pack(pady = 20)
 if __name__ == '__main__':
     print("If you want no delay just put 0 in the box DO NOT LEAVE IT BLANK")
     threading.Thread(target=clicking, daemon=True).start()
+    print("You can now autoclick.")
     app.mainloop()
