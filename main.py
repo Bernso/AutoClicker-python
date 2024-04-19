@@ -3,6 +3,8 @@ import time
 import os
 
 
+########################################################################THIS HAS NO UI########################################################################
+
 is_toggled = False
 mouse_controller = mouse.Controller()
 COMBINATION = {keyboard.Key.f8}
