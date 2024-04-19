@@ -51,6 +51,7 @@ def on_release(key):
     
 def clicking():
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+        
         while True:
             if is_toggled:
                 delay = get_delay()
@@ -58,10 +59,20 @@ def clicking():
                     print("Please restart the program.")
                     break
                 else:
+                    
+                    if stateText.cget('text') != "Active":
+                        stateText.configure(text="Active")
+                    
                     mouse_controller.press(mouse.Button.left)
                     mouse_controller.release(mouse.Button.left)
+                    
                     time.sleep(delay)
-
+            else:
+                # Update stateText label
+                if stateText.cget('text') != "Not active":
+                    stateText.configure(text="Not active")
+                time.sleep(0.1)
+                
         listener.join()
 
 def get_delay():
@@ -69,12 +80,13 @@ def get_delay():
     try:
         delay_float = float(delay_str)  # Convert the string to a float
         # Now you have the float value, you can use it as needed
-        print("Float value entered:", delay_float)
+        print("Current delay:", delay_float)
         return delay_float
         # You can use delay_float wherever you need it in your code
     except ValueError:
         # Handle the case where the input cannot be converted to a float
-        print("Invalid input. Please enter a valid float value.")
+        input("Invalid input. Please enter a valid float value.")
+        app.destroy()
 
 try:
     ico_url = "https://raw.githubusercontent.com/Bernso/Icons/main/Arhururan.ico"
@@ -93,18 +105,18 @@ app.title('AutoClicker by Bernso')
 app.iconbitmap(r"Icon/Arhururan.ico")
 
 
-infoText = tk.CTkLabel(app, text = "When changing the value of the delay,\nmake sure you have turned off the autoclicker.")
-infoText.pack(padx = 10, pady = 10)
+stateText = tk.CTkLabel(app, text = "Not active", font = ('helvetica', 20, 'bold'))
+stateText.pack(padx = 10, pady = 10)
 
 delayBox = tk.CTkEntry(app, placeholder_text = "Delay (must be a float value)", height = 30, width = 300, placeholder_text_color = '#000000')
 delayBox.pack(padx = 10, pady = 10)
 
-stateText = tk.CTkLabel(app, text = "Not active", font = ('helvetica', 20, 'bold'))
-stateText.pack(padx = 10, pady = 10)
+infoText = tk.CTkLabel(app, text = "When changing the value of the delay,\nmake sure you have turned off the autoclicker. (F8)")
+infoText.pack(padx = 10, pady = 10)
 
-supportText = tk.CTkLabel(app, text = "If you are having trouble join the discord for help: (click the link) \nhttps://discord.gg/k5HBFXqtCB", font=('helvetica', 14, 'italic'))
+supportText = tk.CTkLabel(app, text = "If you are having trouble join the discord for help:\nhttps://discord.gg/k5HBFXqtCB\n\n(click the link)", font=('helvetica', 14, 'italic'))
 supportText.bind("<Button-1>", open_discord)
-supportText.pack(pady = 30)
+supportText.pack(pady = 20)
 
 
 if __name__ == '__main__':
