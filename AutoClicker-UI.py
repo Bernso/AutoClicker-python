@@ -54,7 +54,7 @@ def clicking():
         while True:
             if is_toggled:
                 delay = get_delay()
-                if delay is not float:
+                if delay != float(delay):
                     print("Please restart the program.")
                     break
                 else:
