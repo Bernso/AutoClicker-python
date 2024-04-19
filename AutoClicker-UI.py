@@ -119,7 +119,7 @@ supportText = tk.CTkLabel(app, text = "If you are having trouble join the discor
 supportText.bind("<Button-1>", open_discord)
 supportText.pack(pady = 20)
 
-
+ 
 if __name__ == '__main__':
     threading.Thread(target=clicking, daemon=True).start()
     app.mainloop()
