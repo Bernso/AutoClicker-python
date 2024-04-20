@@ -1,6 +1,7 @@
 from pynput import keyboard, mouse
 import time, os, customtkinter as tk, requests, webbrowser, threading
-
+current = os.getcwd()
+os.chdir(current)
 # Creates a folder to store the icon
 Icon = "Icon"
 if os.path.exists(Icon):
