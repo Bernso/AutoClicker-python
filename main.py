@@ -1,7 +1,8 @@
 from pynput import keyboard, mouse
 import time
 import os
-
+current = os.getcwd()
+os.chdir(current)
 
 ########################################################################THIS HAS NO UI########################################################################
 
