@@ -1,6 +1,5 @@
 /.venv
 /build
-/main.spec
 /testUI.py
 /Icon
 dist/Icon/
